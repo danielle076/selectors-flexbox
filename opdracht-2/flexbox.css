@@ -2,70 +2,88 @@
 .one {
     display: flex;
     flex-direction: column;
+    /* uitlijning van begin tot eind (omdat direction = column is dat in dit geval boven tot onder, verticaal)*/
     justify-content: flex-end;
 }
 
 /*Opdracht2.2*/
 .two {
     display: flex;
+    /* row is de default, maar voor nu ter verduidelijking*/
     flex-direction: row;
+    /* uitlijning van begin tot eind (omdat direction = row is dat in dit geval links naar rechts, horizontaal )*/
     justify-content: space-between;
-}
-
-.two div{
-    display: flex;
-    flex-grow: 0;
 }
 
 /*Opdracht 2.3*/
-.three, div.three ul{
+.three {
     display: flex;
+    /* row is de default, maar voor nu ter verduidelijking*/
+    flex-direction: row;
+    /* uitlijning van begin tot eind (omdat direction = row is dat in dit geval links naar rechts, horizontaal )*/
     justify-content: space-between;
+    /* uitlijning haaks op de flex-richting (omdat direction = row is dat in dit geval boven naar beneden, verticaal).
+     Dit zorgt ervoor dat het woordje Edhub op dezelfde hoogte staat als de menu-items.*/
+    align-items: center;
 }
 
-div.three ul{
-    flex-basis: 300px;
-    flex-wrap: wrap;
-}
-div.three ul li{
+.three .left {
+    list-style-type: none;
     display: flex;
+    /* row is de default, maar voor nu ter verduidelijking*/
+    flex-direction: row;
+    /* uitlijning van begin tot eind (omdat direction = row is dat in dit geval links naar rechts, horizontaal )*/
+    justify-content: space-between;
+    /* alle items groeien NIET mee in verhouding tot de overgebleven ruimte*/
+    flex-grow: 0;
+    /* alle items worden NIET kleiner dan de basis */
+    flex-shrink: 0;
+    /*Als we geen basis breedte meegeven wordt de container net zo groot als de content die erin zit.
+    Dan is er niks te 'verspreiden' omdat er geen ongebruikte lege ruimte is.
+    Zorg daarom altijd dat je container groter is dan je content als je dit wil bereiken.*/
+    flex-basis: 300px;
+}
+
+.three .right {
     list-style-type: none;
 }
 
-div.three div{
-    align-items: center;
-    display: flex;
-    flex-grow: 0;
-}
-
 /*Opdracht 2.4*/
-body > div:nth-child(7n),
-div form{
-    display:flex;
+.four {
+    display: flex;
+    /* row is de default, maar voor nu ter verduidelijking*/
+    flex-direction: row;
+    /* uitlijning van begin tot eind (omdat direction = row is dat in dit geval links naar rechts, horizontaal )*/
     justify-content: center;
 }
 
-div form{
+form {
+    display: flex;
+    flex-direction: column;
+    /* uitlijning van begin tot eind (omdat direction = column is dat in dit geval boven tot onder, verticaal)*/
+    justify-content: center;
+    /* uitlijning haaks op de flex-richting (omdat direction = column is dat in dit geval links naar rechts, horizontaal) */
     align-items: center;
 }
 
-div form, div form label{
-    flex-direction: column;
-}
-
-div form label{
+form label {
     display: flex;
+    flex-direction: column;
 }
 
 /*Opdracht 2.5*/
 .five {
     display: flex;
-    flex-flow: wrap;
-    align-content: space-between;
+    /* row is de default, maar voor nu ter verduidelijking*/
+    flex-direction: row;
+    /* als het niet meer past, ga verder op de volgende rij*/
+    flex-wrap: wrap;
 }
 
-.five article{
-    width:300px;
+article {
+    /* alle items groeien met evenveel fracties van de overgebleven beschikbare ruimte*/
     flex-grow: 1;
-    align-self: stretch;
+    /* item mag niet kleiner worden dan de basis*/
+    flex-shrink: 0;
+    flex-basis: 360px;
 }
